@@ -1,0 +1,26 @@
+{
+	"name": "gulp-dogescript",
+	"description": "Gulp plugin for doges.",
+	"author": "Balázs Édes <edesbalazs@gmail.com>",
+	"version": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bali182/gulp-dogescript.git"
+	},
+	"files": [
+		"index.js"
+	],
+	"main": "index.js",
+	"keywords": [
+		"gulpplugin",
+		"dogescript"
+	],
+	"dependencies": {
+		"dogescript": "2.3.0",
+		"through2": "2.0.0",
+		"gulp": "3.9.0",
+		"gulp-util": "3.0.6"
+	},
+	"analyze": true,
+	"license": "MIT"
+}
