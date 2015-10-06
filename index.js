@@ -15,20 +15,19 @@ function gulpDjsCompile(config) {
 	var trueDoge = !!getOrDefault(config, 'trueDoge', false); // TODO warning
 
 	return through2.obj(function (file, enc, cb) {
-    if (file.isStream()) {
-      this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
-      return cb();
-    }
+		if (file.isStream()) {
+			this.emit('error', new PluginError(PLUGIN_NAME, 'Streams are not supported!'));
+			return cb();
+		}
 
-    if (file.isBuffer()) {
+		if (file.isBuffer()) {
 			var output = file.clone();
 			output.contents = new Buffer(djs(file.contents.toString(), beautify, trueDoge));
-			output.path = file.path.replace('.djs', '.js'); // TODO more sophisticated way to replace djs with js
-
+			output.path = gutil.replaceExtension(file.path.toString(), '.js');
 			this.push(output);
-    }
-    return cb();
-  });
+		}
+		return cb();
+	});
 };
 
 module.exports = gulpDjsCompile;
